@@ -2,8 +2,8 @@
   list-style-type: none;
   border: 1px solid #d7dae6;
   border-radius: 20px;
-  padding: 10px 15px;
-  margin-bottom: 20px;
+  padding: 16px;
+  margin-bottom: 24px;
 }
 .question-container {
   display: flex;
@@ -14,7 +14,7 @@
 .question-text {
   color: #52606d;
   font-family: 'Roboto';
-  font-size: 16px;
+  font-size: 12px;
   font-weight: 500;
 }
 .button {
@@ -27,11 +27,11 @@
   width: 20px;
   height: 20px;
 }
-.line{
+.line {
   border: 1px solid #e4e7eb;
 }
-.answer{
+.answer {
   color: #9aa5b1;
-  font-family: "Roboto";
+  font-family: 'Roboto';
   font-size: 14px;
 }
