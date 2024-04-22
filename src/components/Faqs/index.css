@@ -29,3 +29,19 @@
   width: 100%;
   padding: 0px;
 }
+@media screen and (min-width:768px){
+  .faqs-app-container {
+    width: 90%;
+    max-width: 1140px;
+    padding: 32px;
+  }
+  .faqs-list-container {
+    width: 80%;
+  }
+  .heading {
+    color: #cb8805;
+    font-family: 'Roboto';
+    font-size: 64px;
+    font-weight: 700;
+  }
+}
