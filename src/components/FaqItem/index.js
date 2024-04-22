@@ -1,42 +1,44 @@
-import {useState} from 'react'
+import {Component} from 'react'
 import './index.css'
 
-const FaqItem = props => {
-  const {faqDetails} = props
-  const {questionText, answerText} = faqDetails
+class FaqItem extends Component {
+  state = {isActive: false}
 
-  const [isOpen, setIsOpen] = useState(false)
-
-  const toggleAnswer = () => {
-    setIsOpen(!isOpen)
+  toggleAnswer = () => {
+    this.setState(prevState => ({isActive: !prevState.isActive}))
   }
-  const imageUrl = isOpen
-    ? 'https://assets.ccbp.in/frontend/react-js/faqs-minus-icon-img.png'
-    : 'https://assets.ccbp.in/frontend/react-js/faqs-plus-icon-img.png'
 
-  const altText = isOpen ? 'minus' : 'plus'
-
-  const renderAnswerText = () => {
-    return(
+  renderAnswerText = () => {
+    const {faqDetails} = this.props
+    const {answerText} = faqDetails
+    return (
       <>
-        <hr className="line"/>
+        <hr className="line" />
         <p className="answer">{answerText}</p>
       </>
     )
-    
   }
 
-  return (
-    <li className="faq-list-item">
-      <div className="question-container">
-        <h1 className="question-text">{questionText}</h1>
-        <button className="button" type="button" onClick={toggleAnswer}>
-          <img className="plus-minus-image" src={imageUrl} alt={altText} />
-        </button>
-      </div>
-      {isOpen && renderAnswerText()}
-    </li>
-  )
+  render() {
+    const {faqDetails} = this.props
+    const {questionText} = faqDetails
+    const {isActive} = this.state
+    const imageUrl = isActive
+      ? 'https://assets.ccbp.in/frontend/react-js/faqs-minus-icon-img.png'
+      : 'https://assets.ccbp.in/frontend/react-js/faqs-plus-icon-img.png'
+    const altText = isActive ? 'minus' : 'plus'
+    return (
+      <li className="faq-list-item">
+        <div className="question-container">
+          <h1 className="question-text">{questionText}</h1>
+          <button className="button" type="button" onClick={this.toggleAnswer}>
+            <img className="plus-minus-image" src={imageUrl} alt={altText} />
+          </button>
+        </div>
+        {isActive && this.renderAnswerText()}
+      </li>
+    )
+  }
 }
 
 export default FaqItem
